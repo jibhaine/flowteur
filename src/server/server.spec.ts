@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('./server');
 
-describe('Test the root path', () => {
+xdescribe('Test the root path', () => {
   it('It should response the GET method', () => {
     return request(app).get('/').expect(200);
   });
@@ -18,7 +18,7 @@ const supertestWithJest = (err, res, done, asserts) => {
   }
 };
 
-describe('I can use the REST api', () => {
+xdescribe('I can use the REST api', () => {
   it('displays text for the landing page', (done) => {
     request(app)
       .get('/')
