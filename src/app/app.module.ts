@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { ClarityModule } from '@clr/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ShellModule } from './shell/shell.module';
 
 
 @NgModule({
@@ -10,7 +14,10 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ClarityModule,
+    BrowserAnimationsModule,
+    ShellModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
