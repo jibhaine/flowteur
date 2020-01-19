@@ -19,9 +19,26 @@
     "build": "ng build --prod",
     "test": "jest",
     "test-jest": "jest",
-    "lint": "ng lint",
+    "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "nx": "nx",
+    "affected:apps": "nx affected:apps",
+    "affected:libs": "nx affected:libs",
+    "affected:build": "nx affected:build",
+    "affected:e2e": "nx affected:e2e",
+    "affected:test": "nx affected:test",
+    "affected:lint": "nx affected:lint",
+    "affected:dep-graph": "nx affected:dep-graph",
+    "affected": "nx affected",
+    "format": "nx format:write",
+    "format:write": "nx format:write",
+    "format:check": "nx format:check",
+    "update": "ng update @nrwl/workspace",
+    "update:check": "ng update",
+    "dep-graph": "nx dep-graph",
+    "workspace-schematic": "nx workspace-schematic",
+    "help": "nx help"
   },
   "private": true,
   "dependencies": {
@@ -50,7 +67,8 @@
     "node-sass": "^4.13.1",
     "rxjs": "^6.5.4",
     "rxjs-compat": "^6.0.0-rc.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "@nrwl/angular": "8.11.2"
   },
   "devDependencies": {
     "@angular-builders/jest": "^8.3.2",
@@ -75,6 +93,8 @@
     "ts-node": "~4.1.0",
     "tslib": "^1.10.0",
     "tslint": "^5.20.1",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "@nrwl/workspace": "8.11.2",
+    "prettier": "1.18.2"
   }
 }

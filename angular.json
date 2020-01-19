@@ -1,29 +1,29 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
+  "newProjectRoot": "",
   "projects": {
     "flowteur": {
-      "root": "",
-      "sourceRoot": "src",
+      "root": "apps/flowteur",
+      "sourceRoot": "apps/flowteur/src",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/flowteur",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "tsConfig": "tsconfig.app.json",
-            "polyfills": "src/polyfills.ts",
+            "outputPath": "dist/apps/flowteur",
+            "index": "apps/flowteur/src/index.html",
+            "main": "apps/flowteur/src/main.ts",
+            "tsConfig": "apps/flowteur/tsconfig.app.json",
+            "polyfills": "apps/flowteur/src/polyfills.ts",
             "assets": [
-              "src/assets",
-              "src/favicon.ico"
+              "apps/flowteur/src/assets",
+              "apps/flowteur/src/favicon.ico"
             ],
             "styles": [
               "node_modules/@clr/icons/clr-icons.min.css",
               "node_modules/@clr/ui/clr-ui.min.css",
-              "src/styles.css"
+              "apps/flowteur/src/styles.css"
             ],
             "scripts": [
               "node_modules/@webcomponents/custom-elements/custom-elements.min.js",
@@ -43,8 +43,8 @@
               "buildOptimizer": true,
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "apps/flowteur/src/environments/environment.ts",
+                  "with": "apps/flowteur/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -70,16 +70,16 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "tsConfig": "tsconfig.spec.json"
+            "tsConfig": "apps/flowteur/tsconfig.spec.json",
+            "karmaConfig": "apps/flowteur/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "apps/flowteur/tsconfig.app.json",
+              "apps/flowteur/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -109,17 +109,32 @@
               "devServerTarget": "flowteur:serve:production"
             }
           }
-        },
+        }
+      }
+    },
+    "flowteur-e2e": {
+      "projectType": "application",
+      "root": "apps/flowteur-e2e",
+      "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
+            "protractorConfig": "apps/flowteur-e2e/protractor.conf.js",
             "devServerTarget": "flowteur:serve"
           },
           "configurations": {
             "production": {
               "devServerTarget": "flowteur:serve:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/flowteur-e2e/tsconfig.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
