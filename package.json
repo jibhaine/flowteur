@@ -63,6 +63,7 @@
     "@types/supertest": "^2.0.8",
     "codelyzer": "^5.0.1",
     "cypress": "3.8.2",
+    "jasmine": "^3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "jest": "^24.9.0",
     "jest-preset-angular": "^8.0.0",

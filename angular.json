@@ -108,11 +108,10 @@
           }
         },
         "e2e": {
-          "builder": "@briebug/cypress-schematic:cypress",
+          "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "devServerTarget": "flowteur:serve",
-            "watch": true,
-            "headless": false
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "flowteur:serve"
           },
           "configurations": {
             "production": {
