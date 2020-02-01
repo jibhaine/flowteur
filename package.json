@@ -68,7 +68,11 @@
     "rxjs": "^6.5.4",
     "rxjs-compat": "^6.0.0-rc.0",
     "zone.js": "~0.9.1",
-    "@nrwl/angular": "8.11.2"
+    "@nrwl/angular": "8.11.2",
+    "@nestjs/common": "^6.8.3",
+    "@nestjs/core": "^6.8.3",
+    "@nestjs/platform-express": "^6.8.3",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@angular-builders/jest": "^8.3.2",
@@ -95,6 +99,12 @@
     "tslint": "^5.20.1",
     "typescript": "~3.5.3",
     "@nrwl/workspace": "8.11.2",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "@nrwl/jest": "8.11.2",
+    "ts-jest": "24.0.0",
+    "@nrwl/node": "8.11.2",
+    "@nestjs/schematics": "^6.7.0",
+    "@nestjs/testing": "^6.8.3",
+    "@nrwl/nest": "8.11.2"
   }
 }

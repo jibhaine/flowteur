@@ -81,9 +81,7 @@
               "apps/flowteur/tsconfig.app.json",
               "apps/flowteur/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "cypress-run": {
@@ -132,9 +130,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/flowteur-e2e/tsconfig.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -149,5 +145,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/nest"
   }
 }
