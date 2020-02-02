@@ -53,7 +53,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "flowteur:build"
+            "browserTarget": "flowteur:build",
+            "proxyConfig": "apps/flowteur/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -83,30 +84,6 @@
             ],
             "exclude": ["**/node_modules/**"]
           }
-        },
-        "cypress-run": {
-          "builder": "@briebug/cypress-schematic:cypress",
-          "options": {
-            "devServerTarget": "flowteur:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "flowteur:serve:production"
-            }
-          }
-        },
-        "cypress-open": {
-          "builder": "@briebug/cypress-schematic:cypress",
-          "options": {
-            "devServerTarget": "flowteur:serve",
-            "watch": true,
-            "headless": false
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "flowteur:serve:production"
-            }
-          }
         }
       }
     },
@@ -134,6 +111,141 @@
           }
         }
       }
+    },
+    "media-api": {
+      "root": "apps/media-api",
+      "sourceRoot": "apps/media-api/src",
+      "projectType": "application",
+      "prefix": "media-api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/media-api",
+            "main": "apps/media-api/src/main.ts",
+            "tsConfig": "apps/media-api/tsconfig.app.json",
+            "assets": ["apps/media-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/media-api/src/environments/environment.ts",
+                  "with": "apps/media-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "media-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/media-api/tsconfig.app.json",
+              "apps/media-api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/media-api/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/media-api/jest.config.js",
+            "tsConfig": "apps/media-api/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "anchor": {
+      "projectType": "library",
+      "root": "libs/anchor",
+      "sourceRoot": "libs/anchor/src",
+      "prefix": "flowteur",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/anchor/tsconfig.lib.json",
+              "libs/anchor/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/anchor/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/anchor/jest.config.js",
+            "tsConfig": "libs/anchor/tsconfig.spec.json",
+            "setupFile": "libs/anchor/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "medias-page": {
+      "projectType": "library",
+      "root": "libs/medias-page",
+      "sourceRoot": "libs/medias-page/src",
+      "prefix": "flowteur",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/medias-page/tsconfig.lib.json",
+              "libs/medias-page/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/medias-page/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/medias-page/jest.config.js",
+            "tsConfig": "libs/medias-page/tsconfig.spec.json",
+            "setupFile": "libs/medias-page/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "video-page": {
+      "projectType": "library",
+      "root": "libs/video-page",
+      "sourceRoot": "libs/video-page/src",
+      "prefix": "flowteur",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/video-page/tsconfig.lib.json",
+              "libs/video-page/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/video-page/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/video-page/jest.config.js",
+            "tsConfig": "libs/video-page/tsconfig.spec.json",
+            "setupFile": "libs/video-page/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "defaultProject": "flowteur",

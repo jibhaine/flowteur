@@ -13,6 +13,18 @@
     },
     "flowteur-e2e": {
       "tags": []
+    },
+    "media-api": {
+      "tags": []
+    },
+    "anchor": {
+      "tags": []
+    },
+    "medias-page": {
+      "tags": []
+    },
+    "video-page": {
+      "tags": []
     }
   }
 }
