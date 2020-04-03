@@ -12,6 +12,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import * as fromApp from './+state/app.reducer';
+import { AppEffects } from './+state/app.effects';
+import { AppFacade } from './+state/app.facade';
+import { NxModule } from '@nrwl/angular';
 
 const appRoutes: Routes = [
   // { path: 'crisis-center', component: CrisisListComponent },
@@ -52,9 +56,22 @@ const appRoutes: Routes = [
     ),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot(),
+    NxModule.forRoot(),
+    StoreModule.forRoot(
+      {},
+      {
+        metaReducers: !environment.production ? [] : [],
+        runtimeChecks: {
+          strictActionImmutability: true,
+          strictStateImmutability: true
+        }
+      }
+    ),
+    EffectsModule.forRoot([AppEffects]),
+    StoreModule.forFeature(fromApp.APP_FEATURE_KEY, fromApp.reducer)
   ],
-  providers: [],
+  providers: [AppFacade],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
