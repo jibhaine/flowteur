@@ -28,6 +28,9 @@
     },
     "api-model": {
       "tags": []
+    },
+    "flowteur-ssr": {
+      "tags": []
     }
   }
 }

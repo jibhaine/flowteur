@@ -82,7 +82,9 @@
               "apps/flowteur/tsconfig.app.json",
               "apps/flowteur/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -107,7 +109,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/flowteur-e2e/tsconfig.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -125,7 +129,9 @@
             "outputPath": "dist/apps/media-api",
             "main": "apps/media-api/src/main.ts",
             "tsConfig": "apps/media-api/tsconfig.app.json",
-            "assets": ["apps/media-api/src/assets"]
+            "assets": [
+              "apps/media-api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -154,7 +160,10 @@
               "apps/media-api/tsconfig.app.json",
               "apps/media-api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/media-api/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/media-api/**"
+            ]
           }
         },
         "test": {
@@ -179,7 +188,10 @@
               "libs/anchor/tsconfig.lib.json",
               "libs/anchor/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/anchor/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/anchor/**"
+            ]
           }
         },
         "test": {
@@ -206,7 +218,10 @@
               "libs/medias-page/tsconfig.lib.json",
               "libs/medias-page/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/medias-page/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/medias-page/**"
+            ]
           }
         },
         "test": {
@@ -233,7 +248,10 @@
               "libs/video-page/tsconfig.lib.json",
               "libs/video-page/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/video-page/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/video-page/**"
+            ]
           }
         },
         "test": {
@@ -260,7 +278,10 @@
               "libs/api-model/tsconfig.lib.json",
               "libs/api-model/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-model/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-model/**"
+            ]
           }
         },
         "test": {
@@ -268,6 +289,65 @@
           "options": {
             "jestConfig": "libs/api-model/jest.config.js",
             "tsConfig": "libs/api-model/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "flowteur-ssr": {
+      "root": "apps/flowteur-ssr",
+      "sourceRoot": "apps/flowteur-ssr/src",
+      "projectType": "application",
+      "prefix": "flowteur-ssr",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/flowteur-ssr",
+            "main": "apps/flowteur-ssr/src/main.ts",
+            "tsConfig": "apps/flowteur-ssr/tsconfig.app.json",
+            "assets": [
+              "apps/flowteur-ssr/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/flowteur-ssr/src/environments/environment.ts",
+                  "with": "apps/flowteur-ssr/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "flowteur-ssr:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/flowteur-ssr/tsconfig.app.json",
+              "apps/flowteur-ssr/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/flowteur-ssr/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/flowteur-ssr/jest.config.js",
+            "tsConfig": "apps/flowteur-ssr/tsconfig.spec.json"
           }
         }
       }
