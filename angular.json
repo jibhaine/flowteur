@@ -356,11 +356,11 @@
   "defaultProject": "flowteur",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "fl",
+      "prefix": "flw",
       "styleext": "css"
     },
     "@schematics/angular:directive": {
-      "prefix": "app"
+      "prefix": "flw"
     }
   },
   "cli": {

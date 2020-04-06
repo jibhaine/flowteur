@@ -8,19 +8,19 @@ import * as express from 'express';
 import * as directoryTree from 'directory-tree';
 
 export class FolderResource {
-
   constructor(router: express.Router) {
-
-    router.get('/folder/', (request: express.Request, response: express.Response) => {
-      let testData = {
-          firstName: "The",
-          lastName: "Burge"
-      }
-      console.log(directoryTree())
-      response.send(testData);
-    });
+    router.get(
+      '/folder/',
+      (request: express.Request, response: express.Response) => {
+        let testData = {
+          firstName: 'The',
+          lastName: 'Burge',
+        };
+        console.log(directoryTree());
+        response.send(testData);
+      },
+    );
     // add more route handlers here
     // e.g. customerRouter.post('/', (req,res,next)=> {/*...*/})
-
   }
 }

@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './components/header/header.component';
+import { AquariumComponent } from './components/aquarium/aquarium.component';
 
 @NgModule({
-  declarations: [HeaderComponent],
-  exports: [HeaderComponent],
+  declarations: [HeaderComponent, AquariumComponent],
+  exports: [HeaderComponent, AquariumComponent],
   imports: [
     CommonModule
   ]

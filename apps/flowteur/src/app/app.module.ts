@@ -44,20 +44,9 @@ const appRoutes: Routes = [
     ClarityModule,
     BrowserAnimationsModule,
     ShellModule,
-    StoreModule.forRoot(
-      {},
-      {
-        metaReducers: !environment.production ? [] : [],
-        runtimeChecks: {
-          strictActionImmutability: true,
-          strictStateImmutability: true
-        }
-      }
-    ),
-    EffectsModule.forRoot([]),
+    NxModule.forRoot(),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot(),
-    NxModule.forRoot(),
     StoreModule.forRoot(
       {},
       {

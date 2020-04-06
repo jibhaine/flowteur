@@ -12,9 +12,12 @@ nav {
 a,
 h1 {
   flex: 1 1 auto;
-  font-size: 1em;
-  margin: 0 1em;
-  line-height: 2em;
+  margin: 0;
   letter-spacing: 3px;
   color: var(--color-pink);
+  text-shadow: 0 0 5px var(--color-pink);
+}
+h1 {
+  font-size: 1.5em;
+  line-height: 1.3em;
 }
