@@ -1,0 +1,61 @@
+version: '3.0'
+volumes:
+  minio-data:
+  couch-data:
+
+services:
+  # couchdb realtime database
+  database:
+    image: couchdb
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_HOST: 'couch${ENV_SUFFIX}.flowteur.com'
+      VIRTUAL_PORT: 5984
+    volumes:
+      - ./.data/couch:/data
+
+  # object storage server
+  storage:
+    image: minio/minio
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_HOST: 'minio${ENV_SUFFIX}.flowteur.com'
+      VIRTUAL_PORT: 9000
+    volumes:
+      - ./.data/minio:/data
+
+  # nginx reverse-proxy
+  frontal:
+    image: jwilder/nginx-proxy
+
+  # Angular Universal rendering node server
+  rendr:
+    image: node:13
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_HOST: 'rendr${ENV_SUFFIX}.flowteur.com'
+
+  # angular serve mode for live dev (browser mode only)
+  serve:
+    image: nginx
+    volumes:
+        - ./dist/apps/flowteur/:/usr/src/app/dist
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_HOST: 'serve${ENV_SUFFIX}.flowteur.com'
+
+  # main rest api
+  media-api:
+    build: 
+        dockerfile: ./apps/media-api/Dockerfile
+        context: .
+    volumes:
+        - ./dist/apps/media-api/:/usr/src/app/dist
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_HOST: 'media${ENV_SUFFIX}.flowteur.com'
