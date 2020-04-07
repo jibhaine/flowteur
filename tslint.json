@@ -151,7 +151,8 @@
               "*"
             ]
           }
-        ]
+        ],
+        "enforceBuildableLibDependency": true
       }
     ]
   }

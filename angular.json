@@ -26,12 +26,19 @@
               "apps/flowteur/src/styles.css"
             ],
             "scripts": [
-              "node_modules/@webcomponents/custom-elements/custom-elements.min.js",
+              "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
               "node_modules/@clr/icons/clr-icons.min.js"
             ]
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -82,9 +89,7 @@
               "apps/flowteur/tsconfig.app.json",
               "apps/flowteur/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -109,9 +114,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/flowteur-e2e/tsconfig.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -129,9 +132,8 @@
             "outputPath": "dist/apps/media-api",
             "main": "apps/media-api/src/main.ts",
             "tsConfig": "apps/media-api/tsconfig.app.json",
-            "assets": [
-              "apps/media-api/src/assets"
-            ]
+            "assets": ["apps/media-api/src/assets"],
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {
@@ -160,17 +162,15 @@
               "apps/media-api/tsconfig.app.json",
               "apps/media-api/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/media-api/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/media-api/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/media-api/jest.config.js",
-            "tsConfig": "apps/media-api/tsconfig.spec.json"
+            "tsConfig": "apps/media-api/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -188,10 +188,7 @@
               "libs/anchor/tsconfig.lib.json",
               "libs/anchor/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/anchor/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/anchor/**"]
           }
         },
         "test": {
@@ -199,7 +196,8 @@
           "options": {
             "jestConfig": "libs/anchor/jest.config.js",
             "tsConfig": "libs/anchor/tsconfig.spec.json",
-            "setupFile": "libs/anchor/src/test-setup.ts"
+            "setupFile": "libs/anchor/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -218,10 +216,7 @@
               "libs/medias-page/tsconfig.lib.json",
               "libs/medias-page/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/medias-page/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/medias-page/**"]
           }
         },
         "test": {
@@ -229,7 +224,8 @@
           "options": {
             "jestConfig": "libs/medias-page/jest.config.js",
             "tsConfig": "libs/medias-page/tsconfig.spec.json",
-            "setupFile": "libs/medias-page/src/test-setup.ts"
+            "setupFile": "libs/medias-page/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -248,10 +244,7 @@
               "libs/video-page/tsconfig.lib.json",
               "libs/video-page/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/video-page/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/video-page/**"]
           }
         },
         "test": {
@@ -259,7 +252,8 @@
           "options": {
             "jestConfig": "libs/video-page/jest.config.js",
             "tsConfig": "libs/video-page/tsconfig.spec.json",
-            "setupFile": "libs/video-page/src/test-setup.ts"
+            "setupFile": "libs/video-page/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -278,17 +272,15 @@
               "libs/api-model/tsconfig.lib.json",
               "libs/api-model/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api-model/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/api-model/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/api-model/jest.config.js",
-            "tsConfig": "libs/api-model/tsconfig.spec.json"
+            "tsConfig": "libs/api-model/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -306,9 +298,8 @@
             "outputPath": "dist/apps/flowteur-ssr",
             "main": "apps/flowteur-ssr/src/main.ts",
             "tsConfig": "apps/flowteur-ssr/tsconfig.app.json",
-            "assets": [
-              "apps/flowteur-ssr/src/assets"
-            ]
+            "assets": ["apps/flowteur-ssr/src/assets"],
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {
@@ -337,17 +328,15 @@
               "apps/flowteur-ssr/tsconfig.app.json",
               "apps/flowteur-ssr/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/flowteur-ssr/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/flowteur-ssr/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/flowteur-ssr/jest.config.js",
-            "tsConfig": "apps/flowteur-ssr/tsconfig.spec.json"
+            "tsConfig": "apps/flowteur-ssr/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -357,7 +346,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "flw",
-      "styleext": "css"
+      "style": "css"
     },
     "@schematics/angular:directive": {
       "prefix": "flw"
