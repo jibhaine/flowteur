@@ -35,11 +35,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    RouterModule.forRoot(appRoutes, { enableTracing: true, initialNavigation: 'enabled' } // <-- debugging purposes only
+),
     // other imports here
     ClarityModule,
     BrowserAnimationsModule,

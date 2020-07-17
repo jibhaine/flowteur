@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="8ee58de8df352aedff3b45b0985539fd3b5ec6fe" datatype="html">
+        <source>
+    Welcome to <x id="INTERPOLATION" equiv-text="{{ title }}"/> !
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">home.welcome</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

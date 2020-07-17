@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/flowteur",
+            "outputPath": "dist/apps/flowteur/browser",
             "index": "apps/flowteur/src/index.html",
             "main": "apps/flowteur/src/main.ts",
             "tsConfig": "apps/flowteur/tsconfig.app.json",
@@ -90,6 +90,53 @@
               "apps/flowteur/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/apps/flowteur/server",
+            "main": "apps/flowteur/server.ts",
+            "tsConfig": "apps/flowteur/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/flowteur/src/environments/environment.ts",
+                  "with": "apps/flowteur/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "flowteur:build",
+            "serverTarget": "flowteur:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "flowteur:build:production",
+              "serverTarget": "flowteur:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "flowteur:build:production",
+            "serverTarget": "flowteur:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
