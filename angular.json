@@ -207,7 +207,7 @@
               "apps/media-api/tsconfig.app.json",
               "apps/media-api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/media-api/**"]
+            "exclude": ["**/node_modules/**", "!apps/media-api/**/*"]
           }
         },
         "test": {
@@ -232,7 +232,7 @@
               "libs/anchor/tsconfig.lib.json",
               "libs/anchor/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/anchor/**"]
+            "exclude": ["**/node_modules/**", "!libs/anchor/**/*"]
           }
         },
         "test": {
@@ -258,7 +258,7 @@
               "libs/medias-page/tsconfig.lib.json",
               "libs/medias-page/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/medias-page/**"]
+            "exclude": ["**/node_modules/**", "!libs/medias-page/**/*"]
           }
         },
         "test": {
@@ -284,7 +284,7 @@
               "libs/video-page/tsconfig.lib.json",
               "libs/video-page/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/video-page/**"]
+            "exclude": ["**/node_modules/**", "!libs/video-page/**/*"]
           }
         },
         "test": {
@@ -310,7 +310,7 @@
               "libs/api-model/tsconfig.lib.json",
               "libs/api-model/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-model/**"]
+            "exclude": ["**/node_modules/**", "!libs/api-model/**/*"]
           }
         },
         "test": {
@@ -365,7 +365,7 @@
               "apps/flowteur-ssr/tsconfig.app.json",
               "apps/flowteur-ssr/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/flowteur-ssr/**"]
+            "exclude": ["**/node_modules/**", "!apps/flowteur-ssr/**/*"]
           }
         },
         "test": {
