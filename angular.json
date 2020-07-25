@@ -131,9 +131,7 @@
           "options": {
             "browserTarget": "flowteur:build:production",
             "serverTarget": "flowteur:server:production",
-            "routes": [
-              "/"
-            ]
+            "routes": ["/"]
           },
           "configurations": {
             "production": {}
@@ -216,7 +214,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/media-api/jest.config.js",
-            "tsConfig": "apps/media-api/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
@@ -242,8 +239,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/anchor/jest.config.js",
-            "tsConfig": "libs/anchor/tsconfig.spec.json",
-            "setupFile": "libs/anchor/src/test-setup.ts",
             "passWithNoTests": true
           }
         }
@@ -270,8 +265,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/medias-page/jest.config.js",
-            "tsConfig": "libs/medias-page/tsconfig.spec.json",
-            "setupFile": "libs/medias-page/src/test-setup.ts",
             "passWithNoTests": true
           }
         }
@@ -298,8 +291,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/video-page/jest.config.js",
-            "tsConfig": "libs/video-page/tsconfig.spec.json",
-            "setupFile": "libs/video-page/src/test-setup.ts",
             "passWithNoTests": true
           }
         }
@@ -326,7 +317,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/api-model/jest.config.js",
-            "tsConfig": "libs/api-model/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
@@ -382,7 +372,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/flowteur-ssr/jest.config.js",
-            "tsConfig": "apps/flowteur-ssr/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
