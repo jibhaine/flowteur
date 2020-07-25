@@ -1,29 +1,47 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
+
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+*/
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"],
-    "paths": {
-      "@flowteur/anchor": ["libs/anchor/src/index.ts"],
-      "@flowteur/medias-page": ["libs/medias-page/src/index.ts"],
-      "@flowteur/video-page": ["libs/video-page/src/index.ts"],
-      "@flowteur/api-model": ["libs/api-model/src/index.ts"]
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/flowteur/tsconfig.app.json"
     },
-    "rootDir": "."
-  },
-  "angularCompilerOptions": {
-    "enableIvy": false,
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
-  }
+    {
+      "path": "./apps/flowteur/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/flowteur/tsconfig.server.json"
+    },
+    {
+      "path": "./apps/flowteur-e2e/tsconfig.json"
+    },
+    {
+      "path": "./apps/media-api/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/media-api/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/anchor/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/medias-page/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/video-page/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/api-model/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/flowteur-ssr/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/flowteur-ssr/tsconfig.spec.json"
+    }
+  ]
 }
